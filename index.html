@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Probability Lab</title>
+<meta name="description" content="Khả năng xảy ra là bao nhiêu? Mưa và ngập, xổ số, bầu cử, chuyện đời sống: toán học đúng cho từng loại sự việc, kết hợp dữ liệu thời gian thực.">
+<meta name="theme-color" content="#0f2a4a">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='5' fill='%230f2a4a'/%3E%3Crect x='4' y='4' width='16' height='16' rx='3.5' fill='none' stroke='white' stroke-width='1.6'/%3E%3Ccircle cx='8.8' cy='8.8' r='1.3' fill='white'/%3E%3Ccircle cx='12' cy='12' r='1.3' fill='white'/%3E%3Ccircle cx='15.2' cy='15.2' r='1.3' fill='white'/%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Probability Lab">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:title" content="Probability Lab: Khả năng xảy ra là bao nhiêu?">
+<meta property="og:description" content="Mưa và ngập, xổ số, bầu cử, chuyện đời sống. Toán học đúng cho từng loại sự việc, kết hợp dữ liệu thời gian thực.">
+<meta property="og:url" content="https://lysyan911.github.io/probability-lab/">
+<meta property="og:image" content="https://lysyan911.github.io/probability-lab/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Probability Lab: Khả năng xảy ra là bao nhiêu?">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Probability Lab: Khả năng xảy ra là bao nhiêu?">
+<meta name="twitter:description" content="Mưa và ngập, xổ số, bầu cử, chuyện đời sống. Toán học kết hợp dữ liệu thời gian thực.">
+<meta name="twitter:image" content="https://lysyan911.github.io/probability-lab/og-image.png">
+<style>:root{--bg: #f4f6f9;--card: #ffffff;--ink: #15202b;--muted: #5b6774;--line: #e1e6ec;--accent: #1f5fbf;--accent-ink: #ffffff;--accent-soft: #e8f0fc;--brand: #0f2a4a;--good: #1d7f48;--bad: #b8402c;--warn: #9a6400;--v0: #8a96a3;--v1: #5d7fa8;--v2: #2f6fc9;--v3: #1f5fbf;--v4: #123f86;--bar: #2f6fc9;--dot-off: #dde3ea}@media (prefers-color-scheme: dark){:root{--bg: #0f1318;--card: #171c23;--ink: #e7ecf1;--muted: #9aa6b2;--line: #28303a;--accent: #6b9dff;--accent-ink: #0b1220;--accent-soft: #1b2840;--brand: #0b1626;--good: #4cc27f;--bad: #ff7a66;--warn: #e5a93a;--v0: #7b8794;--v1: #7e9cc4;--v2: #6b9dff;--v3: #8fb5ff;--v4: #b9d0ff;--bar: #6b9dff;--dot-off: #2a323d}}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif}a{color:var(--accent)}.top{background:var(--brand);color:#fff}.top .inner{max-width:1080px;margin:0 auto;padding:14px 16px;display:flex;align-items:center;gap:12px}.brand{display:flex;align-items:center;gap:10px;flex:1;min-width:0}.brand svg{flex:none}.brand .name{font-weight:700;font-size:18px;letter-spacing:.01em}.brand .tagline{font-size:13px;opacity:.75;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.lang{display:flex;border:1px solid rgba(255,255,255,.35);border-radius:8px;overflow:hidden;flex:none}.lang button{background:transparent;color:#fff;border:0;padding:6px 12px;font:inherit;font-size:13px;font-weight:600;cursor:pointer}.lang button.active{background:#fff;color:var(--brand)}.share{flex:none;display:flex;align-items:center;gap:6px;background:#fff;color:var(--brand);border:0;border-radius:8px;padding:6px 12px;font:inherit;font-size:13px;font-weight:650;cursor:pointer}.share:focus-visible,.lang button:focus-visible{outline:2px solid #fff;outline-offset:2px}.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translate(-50%);background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:10px;font-size:14px;z-index:50;box-shadow:0 4px 16px #00000040;max-width:calc(100% - 32px)}@media (max-width: 520px){.share span{display:none}.share{padding:6px 9px}}nav{background:var(--card);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}nav .inner{max-width:1080px;margin:0 auto;padding:0 8px;display:flex;overflow-x:auto;scrollbar-width:none}nav button{flex:none;border:0;background:none;color:var(--muted);padding:13px 12px;font:inherit;font-size:15px;cursor:pointer;border-bottom:3px solid transparent;white-space:nowrap}nav button.active{color:var(--accent);border-bottom-color:var(--accent);font-weight:600}main{max-width:1080px;margin:0 auto;padding:20px 16px 8px}section.tab{display:none}section.tab.active{display:block}.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;margin-bottom:18px}.card h2{margin:0 0 6px;font-size:20px;line-height:1.3}.card h3{margin:18px 0 8px;font-size:16px}.lead{color:var(--muted);margin:0 0 16px}.grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(170px,1fr))}.grid2{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(330px,1fr))}.grid2>.card{margin-bottom:0}.stack>*+*{margin-top:18px}label{display:flex;flex-direction:column;gap:5px;font-size:14px;color:var(--muted)}input,select{font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:9px;padding:9px 11px;width:100%}input:focus,select:focus{outline:2px solid var(--accent);outline-offset:1px}input[type=checkbox]{width:18px;height:18px;accent-color:var(--accent)}.btn{font:inherit;font-weight:600;border:0;background:var(--accent);color:var(--accent-ink);padding:10px 18px;border-radius:9px;cursor:pointer;white-space:nowrap}.btn.ghost{background:var(--accent-soft);color:var(--accent)}.btn.small{padding:4px 10px;font-size:13px;border-radius:7px}.btn:disabled{opacity:.55;cursor:default}.row{display:flex;gap:10px;align-items:end;flex-wrap:wrap}.row>label{flex:1 1 170px}.check{flex-direction:row;align-items:center;gap:10px;color:var(--ink);font-size:15px}.chips{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0 0}.chip{border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:999px;padding:5px 13px;font:inherit;font-size:14px;cursor:pointer}.chip:hover{border-color:var(--accent);color:var(--accent)}.chips .k{font-size:13px;color:var(--muted);align-self:center}.answer{background:var(--accent-soft);border-radius:12px;padding:16px 18px;display:flex;gap:18px;align-items:center;flex-wrap:wrap}.answer .fig{font-size:42px;font-weight:750;line-height:1;color:var(--accent);font-variant-numeric:tabular-nums}.answer .fig.sm{font-size:30px}.answer .txt{flex:1 1 240px}.answer .txt p{margin:6px 0 0}.verbal{display:inline-block;font-size:13px;font-weight:650;padding:2px 10px;border-radius:999px;border:1.5px solid currentColor;white-space:nowrap}.day .verbal{font-size:11px;padding:1px 7px}.dots{display:grid;grid-template-columns:repeat(20,8px);gap:3px;flex:none}.dots i{width:8px;height:8px;border-radius:50%;background:var(--dot-off);display:block}.dots i.on{background:var(--accent)}.dots-cap{font-size:12px;color:var(--muted);margin-top:4px}.stat{background:var(--bg);border-radius:11px;padding:12px 14px}.stat .k{font-size:13px;color:var(--muted)}.stat .v{font-size:22px;font-weight:700;font-variant-numeric:tabular-nums}.stat .n{font-size:13px;color:var(--muted)}.facts{margin:14px 0 0;padding:0;list-style:none}.facts li{padding:10px 0 10px 30px;border-top:1px solid var(--line);position:relative}.facts li:before{content:"";position:absolute;left:6px;top:17px;width:10px;height:10px;border-radius:50%;background:var(--accent)}table{width:100%;border-collapse:collapse;font-size:14px}th,td{text-align:left;padding:8px;border-bottom:1px solid var(--line);vertical-align:middle}th{color:var(--muted);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.03em}td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}td input{padding:5px 7px}.scroll{overflow-x:auto}details{margin-top:14px;border-top:1px solid var(--line);padding-top:10px}details summary{cursor:pointer;color:var(--accent);font-size:14px;font-weight:600;list-style:none}details summary::-webkit-details-marker{display:none}details summary:before{content:"+ "}details[open] summary:before{content:"− "}details .body{padding-top:10px}.formula{font-family:ui-monospace,Consolas,monospace;font-size:13px;background:var(--bg);border-left:3px solid var(--accent);padding:9px 11px;border-radius:6px;margin:8px 0;white-space:pre-wrap}.note{font-size:13px;color:var(--muted)}.good{color:var(--good)}.bad{color:var(--bad)}.warn{color:var(--warn)}.err{color:var(--bad)}.callout{border-left:4px solid var(--warn);background:var(--bg);padding:10px 14px;border-radius:8px;font-size:14px}.hero{background:linear-gradient(135deg,var(--accent-soft),var(--card))}.hero h1{margin:0 0 8px;font-size:26px;line-height:1.25}.scale{margin-top:18px}.scale .bar{height:12px;border-radius:6px;background:linear-gradient(90deg,var(--v0),var(--v1),var(--v2),var(--v3),var(--v4))}.scale .ticks{display:grid;grid-template-columns:repeat(5,1fr);font-size:12px;color:var(--muted);margin-top:6px}.scale .ticks span:nth-child(2),.scale .ticks span:nth-child(3),.scale .ticks span:nth-child(4){text-align:center}.scale .ticks span:last-child{text-align:right}.tiles{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(190px,1fr))}.tile{text-align:left;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;cursor:pointer;font:inherit;color:var(--ink);display:flex;flex-direction:column;gap:6px;transition:border-color .15s,transform .15s}.tile:hover{border-color:var(--accent);transform:translateY(-2px)}.tile svg{color:var(--accent)}.tile b{font-size:16px}.tile span{font-size:14px;color:var(--muted)}.tile em{font-style:normal;color:var(--accent);font-size:14px;font-weight:600;margin-top:auto}.balls{display:flex;gap:7px;flex-wrap:wrap;margin:10px 0}.ball{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font-weight:700;background:var(--card);border:2px solid var(--accent);font-variant-numeric:tabular-nums}.ball.bonus{border-color:var(--bad);color:var(--bad)}.ball.sm{width:30px;height:30px;font-size:13px}.compare{display:grid;gap:8px}.compare .r{display:grid;grid-template-columns:minmax(130px,210px) 1fr 60px;gap:10px;align-items:center;font-size:14px}.compare .track{height:12px;background:var(--dot-off);border-radius:6px;overflow:hidden}.compare .track div{height:100%;background:var(--bar)}.compare .r b{text-align:right;font-variant-numeric:tabular-nums}.market{border-top:1px solid var(--line);padding:14px 0;display:grid;grid-template-columns:1fr auto;gap:8px 16px}.market .q{font-weight:600}.market a.src{font-size:12px;color:var(--muted)}.market a.src:hover{color:var(--accent)}.market .p{text-align:right}.market .p .fig{font-size:26px;font-weight:750;color:var(--accent);line-height:1.1}.market .meta{font-size:13px;color:var(--muted);display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:4px}.market .acts{grid-column:1 / -1;display:flex;gap:8px}.trust{font-size:12px;font-weight:650;padding:1px 8px;border-radius:999px;border:1px solid currentColor}.ans{display:grid;grid-template-columns:1fr 56px auto;gap:8px;align-items:center;font-size:14px;padding:3px 0}.ans b{text-align:right;font-variant-numeric:tabular-nums}.days{display:grid;grid-template-columns:repeat(auto-fit,minmax(122px,1fr));gap:10px;margin-top:14px}.day{background:var(--bg);border-radius:11px;padding:12px;display:flex;flex-direction:column;gap:3px}.day .d{font-weight:650;font-size:14px}.day .p{font-size:26px;font-weight:750;color:var(--accent);line-height:1.15}.day .t{font-size:13px;color:var(--muted)}.chart{width:100%;height:auto;display:block}.chart text{fill:var(--muted);font-size:10px}.sclist{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));margin-top:14px}.scbtn{text-align:left;font:inherit;color:var(--ink);background:var(--bg);border:1.5px solid var(--line);border-radius:12px;padding:12px 14px;cursor:pointer;display:flex;flex-direction:column;gap:4px}.scbtn:hover{border-color:var(--accent)}.scbtn.active{border-color:var(--accent);background:var(--accent-soft)}.scbtn .tag{font-size:11px;font-weight:650;text-transform:uppercase;letter-spacing:.04em;color:var(--accent)}.scbtn b{font-size:15px;line-height:1.35}.chip.active{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}.qbadge{display:inline-block;font-size:12px;font-weight:650;padding:2px 9px;border-radius:999px;border:1.5px solid currentColor}.why{background:var(--bg);border-radius:11px;padding:14px 16px;margin-top:14px;font-size:14px}.why h3{margin:0 0 6px}.why ul,.tips{margin:6px 0 0;padding-left:20px}.why li,.tips li{margin:4px 0}.srcs{font-size:13px;margin:6px 0 0;padding-left:18px}.section-h{font-size:18px;margin:26px 0 4px}footer{max-width:1080px;margin:0 auto;padding:8px 16px 32px;font-size:13px;color:var(--muted)}@media (max-width: 520px){.card{padding:16px}.answer .fig{font-size:34px}.dots{grid-template-columns:repeat(20,6px);gap:2px}.dots i{width:6px;height:6px}.brand .tagline{display:none}.hero h1{font-size:22px}}</style>
+</head>
+<body>
+<div class="top"><div class="inner">
+<div class="brand">
+<svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4.5"/><circle cx="8.3" cy="8.3" r="1.4" fill="currentColor"/><circle cx="12" cy="12" r="1.4" fill="currentColor"/><circle cx="15.7" cy="15.7" r="1.4" fill="currentColor"/></svg>
+<div><div class="name">Probability Lab</div><div class="tagline" data-i18n="tagline"></div></div>
+</div>
+<button class="share" id="shareBtn" type="button"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg><span data-i18n="share"></span></button>
+<div class="lang" role="group" aria-label="Language"><button data-lang="vi">VI</button><button data-lang="en">EN</button></div>
+</div></div>
+<nav><div class="inner" id="nav">
+<button data-tab="home" data-i18n="nav.home" class="active"></button>
+<button data-tab="weather" data-i18n="nav.weather"></button>
+<button data-tab="lottery" data-i18n="nav.lottery"></button>
+<button data-tab="world" data-i18n="nav.world"></button>
+<button data-tab="daily" data-i18n="nav.daily"></button>
+<button data-tab="tracker" data-i18n="nav.tracker"></button>
+</div></nav>
+<main>
+<section class="tab active" id="tab-home">
+<div class="card hero">
+<h1 data-i18n="home.title"></h1>
+<p class="lead" data-i18n-html="home.lead"></p>
+<div class="scale">
+<div class="bar"></div>
+<div class="ticks"><span data-i18n="scale.0"></span><span data-i18n="scale.25"></span><span data-i18n="scale.50"></span><span data-i18n="scale.75"></span><span data-i18n="scale.100"></span></div>
+</div>
+</div>
+<h2 style="font-size:18px;margin:4px 0 12px" data-i18n="home.pick"></h2>
+<div class="tiles">
+<button class="tile" data-goto="weather">
+<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M7 15.5a4 4 0 1 1 .9-7.9A5 5 0 0 1 17.6 8.5 3.5 3.5 0 0 1 17 15.5H7z"/><path d="M8.5 18.5l-1 2M12.5 18.5l-1 2M16.5 18.5l-1 2"/></svg>
+<b data-i18n="tile.weather.t"></b><span data-i18n="tile.weather.d"></span><em data-i18n="tile.open"></em></button>
+<button class="tile" data-goto="lottery">
+<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M3 7h18v3a2 2 0 0 0 0 4v3H3v-3a2 2 0 0 0 0-4z"/><path d="M15 7v10" stroke-dasharray="2 2"/></svg>
+<b data-i18n="tile.lottery.t"></b><span data-i18n="tile.lottery.d"></span><em data-i18n="tile.open"></em></button>
+<button class="tile" data-goto="world">
+<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg>
+<b data-i18n="tile.world.t"></b><span data-i18n="tile.world.d"></span><em data-i18n="tile.open"></em></button>
+<button class="tile" data-goto="daily">
+<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/></svg>
+<b data-i18n="tile.daily.t"></b><span data-i18n="tile.daily.d"></span><em data-i18n="tile.open"></em></button>
+<button class="tile" data-goto="tracker">
+<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 12l2 2 4-4"/></svg>
+<b data-i18n="tile.tracker.t"></b><span data-i18n="tile.tracker.d"></span><em data-i18n="tile.open"></em></button>
+</div>
+<div class="card" style="margin-top:18px">
+<h2 data-i18n="home.truthsTitle"></h2>
+<ul class="facts">
+<li data-i18n-html="home.t1"></li>
+<li data-i18n-html="home.t2"></li>
+<li data-i18n-html="home.t3"></li>
+<li data-i18n-html="home.t4"></li>
+</ul>
+</div>
+</section>
+<section class="tab" id="tab-weather">
+<div class="card">
+<h2 data-i18n="wx.title"></h2>
+<p class="lead" data-i18n="wx.lead"></p>
+<div class="row">
+<label><span data-i18n="wx.city"></span><input id="wxCity" value="Cần Thơ"></label>
+<label style="flex:0 1 230px"><span data-i18n="wx.thr"></span><select id="wxThr">
+<option value="0.2" data-i18n="wx.thr1"></option><option value="1" data-i18n="wx.thr2"></option><option value="10" data-i18n="wx.thr3"></option></select></label>
+<button class="btn" id="wxGo" data-i18n="wx.go"></button>
+</div>
+<div class="chips" id="wxChips"><span class="k" data-i18n="wx.quick"></span></div>
+<div id="wxOut" style="margin-top:18px"></div>
+<details><summary data-i18n="how"></summary><div class="body">
+<p class="note" data-i18n-html="wx.how"></p>
+<div class="formula">P(rain) = (members with rain + ½) / (members + 1)</div>
+</div></details>
+</div>
+<div class="card" id="floodCard" style="display:none"></div>
+</section>
+<section class="tab" id="tab-lottery">
+<div class="card">
+<h2 data-i18n="lot.title"></h2>
+<p class="lead" data-i18n-html="lot.lead"></p>
+<div class="row"><label><span data-i18n="lot.game"></span><select id="lotGame"></select></label></div>
+<div id="lotHeadline" style="margin-top:16px"></div>
+<details id="lotAdv"><summary data-i18n="lot.adv"></summary><div class="body">
+<div class="row">
+<label><span data-i18n="lot.cost"></span><input id="lotCost" type="number" step="any"></label>
+<label><span data-i18n="lot.jackpot"></span><input id="lotJackpot" type="number" step="any"></label>
+<label><span data-i18n="lot.sold"></span><input id="lotSold" type="number" step="any"></label>
+<label><span data-i18n="lot.tax"></span><input id="lotTax" type="number" step="any"></label>
+</div>
+<div id="lotCustom" class="row" style="margin-top:10px; display:none">
+<label><span data-i18n="lot.cusPool"></span><input id="cusPool" type="number" value="49"></label>
+<label><span data-i18n="lot.cusPick"></span><input id="cusPick" type="number" value="6"></label>
+<label><span data-i18n="lot.cusBPool"></span><input id="cusBPool" type="number" value="0"></label>
+<label><span data-i18n="lot.cusBPick"></span><input id="cusBPick" type="number" value="1"></label>
+</div>
+<div class="grid" style="margin-top:14px" id="lotStats"></div>
+<h3 data-i18n="lot.tiers"></h3>
+<div class="scroll"><table id="lotTiers"></table></div>
+<p class="note" id="lotNote"></p>
+<div class="formula" id="lotFormula"></div>
+</div></details>
+</div>
+<div class="card">
+<h2 data-i18n="sim.title"></h2>
+<p class="lead" data-i18n="sim.lead"></p>
+<div class="row">
+<label><span data-i18n="sim.tickets"></span><input id="simTickets" type="number" min="1" value="1"></label>
+<label><span data-i18n="sim.draws"></span><input id="simDraws" type="number" min="1" value="3"></label>
+<label><span data-i18n="sim.years"></span><input id="simYears" type="number" min="1" value="20"></label>
+<button class="btn" id="simRun" data-i18n="sim.run"></button>
+</div>
+<div id="simOut" style="margin-top:16px"></div>
+</div>
+<div class="card">
+<h2 data-i18n="hist.title"></h2>
+<p class="lead" data-i18n="hist.lead"></p>
+<div class="row">
+<label><span data-i18n="hist.game"></span><select id="histGame"><option value="powerball">Powerball (USA)</option><option value="megamillions">Mega Millions (USA)</option></select></label>
+<button class="btn" id="histLoad" data-i18n="hist.run"></button>
+</div>
+<div id="histOut" style="margin-top:16px"></div>
+</div>
+<div class="card">
+<h2 data-i18n="gen.title"></h2>
+<p class="lead" data-i18n="gen.lead"></p>
+<div class="row">
+<label class="check"><input type="checkbox" id="genAvoid"> <span data-i18n="gen.avoid"></span></label>
+<button class="btn" id="genBtn" data-i18n="gen.go"></button>
+</div>
+<div id="genOut"></div>
+</div>
+</section>
+<section class="tab" id="tab-world">
+<div class="card">
+<h2 data-i18n="mk.title"></h2>
+<p class="lead" data-i18n-html="mk.lead"></p>
+<div class="row">
+<label><span data-i18n="mk.search"></span><input id="mkQuery" value="election"></label>
+<label style="flex:0 1 190px"><span data-i18n="mk.sort"></span><select id="mkSort">
+<option value="liquidity" data-i18n="mk.sortLiq"></option><option value="most-popular" data-i18n="mk.sortPop"></option>
+<option value="newest" data-i18n="mk.sortNew"></option><option value="close-date" data-i18n="mk.sortClose"></option></select></label>
+<button class="btn" id="mkSearch" data-i18n="mk.go"></button>
+</div>
+<div class="chips" id="mkChips"><span class="k" data-i18n="mk.topics"></span></div>
+<div id="mkOut" style="margin-top:14px"></div>
+</div>
+<div class="grid2">
+<div class="card">
+<h2 data-i18n="poll.title"></h2>
+<p class="lead" data-i18n="poll.lead"></p>
+<div class="grid">
+<label><span data-i18n="poll.a"></span><input id="plA" type="number" step="any" value="48"></label>
+<label><span data-i18n="poll.b"></span><input id="plB" type="number" step="any" value="46"></label>
+<label><span data-i18n="poll.days"></span><input id="plDays" type="number" value="60"></label>
+</div>
+<div id="plOut" style="margin-top:16px"></div>
+<details><summary data-i18n="advHow"></summary><div class="body">
+<div class="grid">
+<label><span data-i18n="poll.sd"></span><input id="plSd" type="number" step="any" value="4.5"></label>
+<label><span data-i18n="poll.drift"></span><input id="plDrift" type="number" step="any" value="1.5"></label>
+</div>
+<p class="note" data-i18n="poll.how"></p>
+<div class="formula">σ = √(σ_poll² + drift² · days/30)
+P(A wins) = Φ( (A − B) / σ )</div>
+</div></details>
+</div>
+<div class="card">
+<h2 data-i18n="news.title"></h2>
+<p class="lead" data-i18n="news.lead"></p>
+<div class="grid">
+<label><span data-i18n="news.prior"></span><input id="bnPrior" type="number" step="any" value="35"></label>
+<label><span data-i18n="news.effect"></span><select id="bnPreset">
+<option value="10" data-i18n="news.e10"></option><option value="3" data-i18n="news.e3"></option><option value="1.5" data-i18n="news.e15" selected></option>
+<option value="0.67" data-i18n="news.e067"></option><option value="0.33" data-i18n="news.e033"></option><option value="0.1" data-i18n="news.e01"></option>
+<option value="custom" data-i18n="news.custom"></option></select></label>
+</div>
+<div id="bnOut" style="margin-top:16px"></div>
+<details><summary data-i18n="advHow"></summary><div class="body">
+<label><span data-i18n="news.lr"></span><input id="bnLR" type="number" step="any" value="1.5"></label>
+<p class="note" data-i18n="news.how"></p>
+<div class="formula">posterior odds = prior odds × LR,   odds = p / (1 − p)</div>
+</div></details>
+</div>
+</div>
+<div class="card" style="margin-top:18px">
+<h2 data-i18n="pool.title"></h2>
+<p class="lead" data-i18n="pool.lead"></p>
+<div id="poolList"></div>
+<div class="row" style="margin-top:10px">
+<label><span data-i18n="pool.name"></span><input id="poolName"></label>
+<label style="flex:0 1 140px"><span data-i18n="pool.p"></span><input id="poolP" type="number" step="any"></label>
+<button class="btn ghost" id="poolAdd" data-i18n="pool.add"></button>
+</div>
+<div id="poolOut" style="margin-top:16px"></div>
+<details><summary data-i18n="advHow"></summary><div class="body">
+<label><span data-i18n="pool.a"></span><input id="poolA" type="number" step="0.1" value="1"></label>
+<p class="note" data-i18n="pool.how"></p>
+<div class="formula">p* = σ( a · Σ wᵢ·logit(pᵢ) / Σ wᵢ ),   logit(p) = ln(p / (1−p))</div>
+</div></details>
+</div>
+</section>
+<section class="tab" id="tab-daily">
+<div class="card">
+<h2 data-i18n="sc.title"></h2>
+<p class="lead" data-i18n="sc.lead"></p>
+<div class="chips" id="scCats" style="margin-top:0"></div>
+<div class="sclist" id="scList"></div>
+</div>
+<div class="card" id="scPanel" style="display:none"></div>
+<h2 class="section-h" data-i18n="sc.own"></h2>
+<p class="lead" data-i18n="sc.ownLead"></p>
+<div class="grid2">
+<div class="card">
+<h2 data-i18n="bf.title"></h2>
+<p class="lead" data-i18n="bf.lead"></p>
+<div class="grid">
+<label><span data-i18n="bf.k"></span><input id="bfK" type="number" min="0" value="6"></label>
+<label><span data-i18n="bf.n"></span><input id="bfN" type="number" min="1" value="30"></label>
+<label><span data-i18n="bf.m"></span><input id="bfM" type="number" min="1" value="7"></label>
+</div>
+<div id="bfOut" style="margin-top:16px"></div>
+<details><summary data-i18n="how"></summary><div class="body">
+<p class="note" data-i18n="bf.how"></p>
+<div class="formula">p ~ Beta(k+1, n−k+1)
+P(tomorrow) = (k+1)/(n+2)
+P(≥1 in m days) = 1 − B(k+1, n−k+1+m) / B(k+1, n−k+1)</div>
+</div></details>
+</div>
+<div class="card">
+<h2 data-i18n="pr.title"></h2>
+<p class="lead" data-i18n="pr.lead"></p>
+<div class="grid">
+<label><span data-i18n="pr.c"></span><input id="prC" type="number" min="0" value="4"></label>
+<label><span data-i18n="pr.t"></span><input id="prT" type="number" min="1" value="365"></label>
+<label><span data-i18n="pr.w"></span><input id="prW" type="number" min="1" value="30"></label>
+</div>
+<div id="prOut" style="margin-top:16px"></div>
+<details><summary data-i18n="how"></summary><div class="body">
+<p class="note" data-i18n="pr.how"></p>
+<div class="formula">λ ~ Gamma(c+½, t)
+P(≥1 in w) = 1 − (t/(t+w))^(c+½)</div>
+</div></details>
+</div>
+<div class="card">
+<h2 data-i18n="bs.title"></h2>
+<p class="lead" data-i18n="bs.lead"></p>
+<div class="grid">
+<label><span data-i18n="bs.prior"></span><input id="bsPrior" type="number" step="any" value="1"></label>
+<label><span data-i18n="bs.sens"></span><input id="bsSens" type="number" step="any" value="90"></label>
+<label><span data-i18n="bs.fp"></span><input id="bsFp" type="number" step="any" value="9"></label>
+</div>
+<div id="bsOut" style="margin-top:16px"></div>
+<details><summary data-i18n="how"></summary><div class="body">
+<div class="formula">P(E | sign) = P(sign|E)·P(E) / [P(sign|E)·P(E) + P(sign|¬E)·P(¬E)]</div>
+</div></details>
+</div>
+<div class="card">
+<h2 data-i18n="cb.title"></h2>
+<p class="lead" data-i18n="cb.lead"></p>
+<label><span data-i18n="cb.list"></span><input id="cbList" value="30, 50, 20"></label>
+<div id="cbOut" style="margin-top:16px"></div>
+<details><summary data-i18n="how"></summary><div class="body">
+<p class="note" data-i18n="cb.how"></p>
+<div class="formula">P(all) = Π pᵢ      P(at least one) = 1 − Π (1 − pᵢ)</div>
+</div></details>
+</div>
+</div>
+</section>
+<section class="tab" id="tab-tracker">
+<div class="card">
+<h2 data-i18n="tr.title"></h2>
+<p class="lead" data-i18n="tr.lead"></p>
+<div class="row">
+<label><span data-i18n="tr.q"></span><input id="trQ"></label>
+<label style="flex:0 1 140px"><span data-i18n="tr.p"></span><input id="trP" type="number" step="any"></label>
+<button class="btn" id="trAdd" data-i18n="tr.add"></button>
+</div>
+<div id="trSummary" style="margin-top:18px"></div>
+<div class="scroll" style="margin-top:14px"><table id="trTable"></table></div>
+<details><summary data-i18n="advHow"></summary><div class="body">
+<div class="grid2">
+<div><h3 data-i18n="tr.cal"></h3><div id="trCal"></div><p class="note" data-i18n="tr.calNote"></p></div>
+<div><h3 data-i18n="tr.scores"></h3><div class="grid" id="trStats"></div>
+<div class="formula">Brier = mean (p − outcome)²   (0 = perfect, 0.25 = always 50%)
+Log score = mean −ln P(what happened)   (0.693 = always 50%)</div></div>
+</div>
+<button class="btn ghost" id="trExport" style="margin-top:10px" data-i18n="tr.export"></button>
+</div></details>
+</div>
+</section>
+</main>
+<footer data-i18n-html="footer"></footer>
+<div class="toast" id="toast" hidden></div>
+<noscript><p style="padding:16px">Ứng dụng cần bật JavaScript để hoạt động. / This app needs JavaScript.</p></noscript>
+<script src="app.bd5a8a797d.js"></script>
+</body>
+</html>
